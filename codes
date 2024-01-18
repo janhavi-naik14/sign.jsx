@@ -1,0 +1,63 @@
+import React from 'react'
+import './Samsign.css';
+const Samsign = () => {
+  return (
+    <div className='container'>
+        <div className='login'>
+                    <h2>Create New Account</h2>  
+                    <div className='logo'>
+                    <h3>Hii Foodie!!</h3>
+                    <h2>Welcome to Samaadhaan</h2> 
+                    </div>
+                    <div className='form-box'>
+                      
+                      <form action="#">
+                    <div className='input-box'>
+                         <input type="text" required/>
+                         <label>Full Name</label>
+                    <div className='input-box'>
+                         <input type="text"  required/>
+                         <label>Ph.number</label>
+                    </div>
+                    <div className='input-box'>
+                         <input type="text" required/>
+                         <label>State and City</label>
+                    </div>
+                    <div className='input-box'>
+                         <input type="text"  required/>
+                         <label>Select Food Categories</label>
+                    </div>
+                    
+
+                         
+                       
+
+
+    
+                    </div> 
+                    </form> 
+                    </div>                 
+        </div>
+        <div className='box'>
+          <nav>
+            <ul>
+              <li><a href="#"><span><img src="Frame 4.png"/></span>Tiffinwalla</a></li>
+              <li><a href="#"><span><img src="chef.png"/></span>Masterchef</a></li>
+              <li><a href="#"><span><img src="vendor.png"/></span>Street vendor</a></li>
+              <li><a href="#"><span><img src="restro.png"/></span>Restro Owner</a></li>
+            </ul>
+            </nav>
+            <div className='image'>
+              <img src="group.png" alt="picture"></img>
+            </div>
+
+
+          
+
+        </div>
+      
+    </div>
+  )
+}
+
+export default Samsign
