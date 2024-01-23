@@ -1,26 +1,46 @@
-import { useState } from "react";
-const ImageSlider=({slides}) => {
-    const [currentIndex , setCurrentUser] = useState(0);
-    const sliderStyles = {
-        height: '100%',
-        position: "relative",
-    };
-    const slideStyles ={
-        width: '100%',
-        height: '100%',
-        borderRadius: '10px',
+import React from 'react'
+import './ImageSlider.css'
+import imageSlide from './data'
+import {useEffect , useState} from "react"
+const ImageSlider = () => {
+    
+    const[currentState , setCurrentState]= useState(0)
+    useEffect(()=>{
+        const timer = setTimeout(()=>{
+            if(currentState===2){
+                setCurrentState(0)
+            }else{
+                setCurrentState(currentState+1)
+            }
+            
+
+        },2000)
+        return ()=> clearTimeout(timer)
+    },[currentState])
+    const bgImageStyle ={
+        backgroundImage: `url(${imageSlide[currentState].url})`,
         backgroundPosition: 'center',
-        backgroundSize: "cover",
-        backgroundImage: "url(${slides[currentIndex].url})",
-    };
-    return(
-        <div>
-            <div style={sliderStyles}>
-                <div style={slideStyles}></div>
+        backgroundSize: 'cover',
+        height:'100%',
+        width: '100%',
+        borderRadius: '10px',
+    }
+    const goToNext = (currentState)=>{
+        setCurrentState(currentState)
+    }
+  return (
+    <div className="container-style">
+      <div style={bgImageStyle}></div>
+      <div className='carousel-boult'>
+        {
+            imageSlide.map((imageSlide,currentState)=>(
+                <span key={currentState} onClick={()=> goToNext(currentState)}></span>
+            ))
+        }
+      </div>
+    </div>
+    
+  )
+}
 
-            </div>
-        </div>
-    )
-};
-
-export default ImageSlider;
+export default ImageSlider
